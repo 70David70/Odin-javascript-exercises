@@ -1,11 +1,14 @@
 const removeFromArray = function(array, ...nums) {
-    let indices  = []
-    for (num of nums) {
-        indices .push(array.indexOf(num))
-    }
-    let numberOfElements = nums.length
-    array.splice(indices , numberOfElements)
-    return array
+    let purified = []
+    purified = array.filter( (item)=> {
+        for (num of nums) {
+            if (item === num) {
+                return false
+            }
+        }
+        return true
+    })
+    return purified
 };
 console.log(removeFromArray([1, 2, 3], 1, 2))
 
